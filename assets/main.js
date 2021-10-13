@@ -18,7 +18,7 @@ for (let i = 1; i <= nJuegos; i++) {
     let pcGamer = Math.floor(Math.random() * 3 ) + 1
     let jugada;
     do{
-        jugada = prompt("Seleccione su jugada: \n 1.piedra, \n 2.papel \n 3.tijera", 1)
+        jugada = parseInt(prompt("Seleccione su jugada: \n 1.piedra, \n 2.papel \n 3.tijera", 1))
 
         if( jugada == pcGamer){
             alert("Usted ha empatado con la maquina");
