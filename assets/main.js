@@ -1,33 +1,61 @@
-let nJuegos = 0;
+validacionJuego = false;
 
-do {
-    nJuegos = parseInt(prompt("Ingrese las veces que jugará", 1));    
-} while (!isNaN(nJuegos) && nJuegos > 0 )
+do{
+let nJuegos = parseInt(prompt("Ingrese el número de veces que quiere jugar al cachipun", 1)); 
+    //Condición Validación
+    if(nJuegos == isNaN && nJuegos <= 0){
+        alert("Dato incorrecto, ingrese digito númerico mayor a 0")
+        validacionJuego=false;
+    }
+    else{
+        alert("Usted tiene "+ nJuegos+ "intento(s)");
+        validacionJuego=true;
+    }
+}while(validacionJuego==false)
 
-for (let i = 0; i < nJuegos; i++) {
-    let player_game = 0
 
-    do {
-        player_game = parseInt(prompt( "1. Piedra \n 2. Papel \n Tijera"), 1 )
-    } while (isNaN(player_game) || player_game < 1 || player_game > 3) ;
-    
-    const computer_game = Math.floor(Math.random() * 3 ) + 1
+for (let i = 1; i <= nJuegos; i++) {
+    let pcGamer = Math.floor(Math.random() * 3 ) + 1
+    let jugada;
+    do{
+        jugada = prompt("Seleccione su jugada: \n 1.piedra, \n 2.papel \n 3.tijera", 1)
+
+        if( jugada == pcGamer){
+            alert("Usted ha empatado con la maquina");
+        }
+        switch (jugada){
+            case "1":
+                if(pcGamer==3){
+                    alert("Felicidades!, ha ganado el juego, su selección es piedra vs la selección tijera por parte de la maquina")
+                }
+                else{
+                    alert("Lo sentimos!, ha perdido el juego, su selección es piedra vs la selección papel por parte de la maquina")
+                }
+                break; 
+            case "2":
+                if(pcGamer==1){
+                    alert("Felicidades!, ha ganado el juego, su selección es papel vs la selección piedra por parte de la maquina")
+                }
+                else{
+                    alert("Lo sentimos!, ha perdido el juego, su selección es papel vs la selección tijera por parte de la maquina")
+                }
+                break; 
+            case "3":
+                if(pcGamer==2){
+                    alert("Felicidades!, ha ganado el juego, su selección es tijera vs la selección papel por parte de la maquina")
+                }
+                else{
+                    alert("Lo sentimos!, ha perdido el juego, su selección es tijera vs la selección piedra por parte de la maquina")
+                }
+                break; 
+            default:
+                alert("el caracter ingresado es invalido, intente nuevamente.")     
+        }
+    }
+    while(jugada != isNaN && jugada > 0 && jugada < 4);
 }
 
 
-const piedra= 0;
-const papel= 1;
-const tijera= 2;
-
-const opciones = ["piedra", "papel", "tijera"];
-
-const OpcionUsuario;
-
-OpcionUsuario = prompt("Seleccione su jugada: \n piedra: 0 \n papel: 1 \n tijera: 2", 0);
-
-alert("Su eleccón es: " +OpcionUsuario)
-
-let opciionPC = Math.floor(math.random() * 3)  *1
 
 
 
